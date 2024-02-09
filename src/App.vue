@@ -5,6 +5,7 @@ export default {
     return {
       message: "Hello world",
       image: "https://picsum.photos/200/300",
+      activeImage:0,
       slider: {
         name: "Mandalorian",
         images: [
@@ -31,7 +32,7 @@ export default {
     <h1>{{ slider.name }}</h1>
 
     <div class="slides">
-      <img :src="slider.images[0]" alt="random picture" />
+      <img :src="slider.images[activeImage]" alt="random picture" />
     </div>
 
   </div>
