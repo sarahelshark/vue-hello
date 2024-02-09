@@ -5,7 +5,7 @@ export default {
     return {
       message: "Hello world",
       image: "https://picsum.photos/200/300",
-      activeImage:0,
+      activeImage: 0,
       slider: {
         name: "Mandalorian",
         images: [
@@ -24,9 +24,19 @@ export default {
       },
     };
   },
-  mounted(){
+  mounted() {
     console.log(this.slider);
-  }
+  },
+  methods: {
+    prev() {
+      console.log("prev");
+      this.activeImage--
+    },
+    next() {
+      console.log("next");
+      this.activeImage++
+    },
+  },
 };
 </script>
 
@@ -38,6 +48,11 @@ export default {
       <img :src="slider.images[activeImage]" alt="random picture" />
     </div>
 
+    <div class="navigator">
+      <button class="prev" @click="prev">prev</button>
+
+      <button class="next" @click="next">next</button>
+    </div>
   </div>
 </template>
 
@@ -58,16 +73,20 @@ img {
   margin: auto;
 }
 
-.row{
+.row {
   display: flex;
   flex-wrap: wrap;
   margin: 0 - 1rem;
 }
 
-.col{
+.col {
   width: auto;
   padding: 1rem;
   flex-basis: auto;
+}
 
+.navigator{
+  display: flex;
+  justify-content: space-between;
 }
 </style>
