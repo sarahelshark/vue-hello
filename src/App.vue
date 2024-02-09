@@ -31,10 +31,18 @@ export default {
     prev() {
       console.log("prev");
       this.activeImage--
+
+      if(this.activeImage<0){
+        this.activeImage=this.slider.images.length - 1
+      }
     },
     next() {
       console.log("next");
       this.activeImage++
+
+      if(this.activeImage > this.slider.images.length - 1){
+        this.activeImage=0;
+      }
     },
   },
 };
