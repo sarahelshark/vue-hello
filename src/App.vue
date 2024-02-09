@@ -30,18 +30,18 @@ export default {
   methods: {
     prev() {
       console.log("prev");
-      this.activeImage--
+      this.activeImage--;
 
-      if(this.activeImage<0){
-        this.activeImage=this.slider.images.length - 1
+      if (this.activeImage < 0) {
+        this.activeImage = this.slider.images.length - 1;
       }
     },
     next() {
       console.log("next");
-      this.activeImage++
+      this.activeImage++;
 
-      if(this.activeImage > this.slider.images.length - 1){
-        this.activeImage=0;
+      if (this.activeImage > this.slider.images.length - 1) {
+        this.activeImage = 0;
       }
     },
   },
@@ -54,6 +54,29 @@ export default {
 
     <div class="slides">
       <img :src="slider.images[activeImage]" alt="random picture" />
+    </div>
+
+    <div class="thumbs">
+      <img
+        width="100"
+        src="https://image.tmdb.org/t/p/original/9zcbqSxdsRMZWHYtyCd1nXPr2xq.jpg"
+      />
+      <img
+        width="100"
+        src="https://image.tmdb.org/t/p/original/aZ4fmjMUAhS6PWhVLDDfT0RAdNe.jpg"
+      />
+      <img
+        width="100"
+        src="https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg"
+      />
+      <img
+        width="100"
+        src="https://image.tmdb.org/t/p/original/qruRhG6jE5M8lWnW1AGOBxtdmCO.jpg"
+      />
+      <img
+        width="100"
+        src="https://image.tmdb.org/t/p/original/lMu3y10KgIYtXFPeCMim3D8iihV.jpg"
+      />
     </div>
 
     <div class="navigator">
@@ -93,8 +116,20 @@ img {
   flex-basis: auto;
 }
 
-.navigator{
+.navigator {
   display: flex;
   justify-content: space-between;
+}
+
+button {
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-style: none;
+}
+
+.slides {
+  & > img {
+    border-radius: 1rem;
+  }
 }
 </style>
