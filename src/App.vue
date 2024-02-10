@@ -59,7 +59,9 @@ export default {
     <div class="thumbs">
       <img
         width="100"
-        :src="thumb" v-for="thumb in slider.images"
+        :src="thumb"
+        v-for="(thumb, index) in slider.images"
+        :class="index === activeImage ? 'active' : ''" @click="activeImage=index"
       />
     </div>
 
@@ -101,6 +103,7 @@ img {
 }
 
 .navigator {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -114,6 +117,13 @@ button {
 .slides {
   & > img {
     border-radius: 1rem;
+  }
+}
+
+.thumbs {
+  & > img.active {
+    /*border: 5px solid rgba(129, 230, 46, 0.74);*/
+    filter: drop-shadow(2px 4px 6px rgba(5, 5, 5, 0.87));
   }
 }
 </style>
