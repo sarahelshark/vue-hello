@@ -26,6 +26,10 @@ export default {
   },
   mounted() {
     console.log(this.slider);
+
+    setInterval(()=>{
+      this.next()
+    },1000)
   },
   methods: {
     prev() {
