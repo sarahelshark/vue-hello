@@ -5,6 +5,7 @@ export default {
     return {
       message: "Hello world",
       image: "https://picsum.photos/200/300",
+      autoplay: null ,
       activeImage: 0,
       slider: {
         name: "Mandalorian",
@@ -27,9 +28,9 @@ export default {
   mounted() {
     console.log(this.slider);
 
-    setInterval(()=>{
-      this.next()
-    },1000)
+    this.autoplay = setInterval(() => {
+      this.next();
+    }, 1000);
   },
   methods: {
     prev() {
@@ -56,7 +57,7 @@ export default {
   <div class="container">
     <h1>{{ slider.name }}</h1>
 
-    <div class="slides">
+    <div class="slides" >
       <img :src="slider.images[activeImage]" alt="random picture" />
     </div>
 
@@ -65,12 +66,14 @@ export default {
         width="100"
         :src="thumb"
         v-for="(thumb, index) in slider.images"
-        :class="index === activeImage ? 'active' : ''" @click="activeImage=index" :key="'thumb'+index"
+        :class="index === activeImage ? 'active' : ''"
+        @click="activeImage = index"
+        :key="'thumb' + index"
       />
     </div>
 
-    <div class="navigator">
-      <button class="prev" @click="prev">prev</button>
+    <div class="navigator" >
+      <button class="prev" @click="prev" >prev</button>
 
       <button class="next" @click="next">next</button>
     </div>
