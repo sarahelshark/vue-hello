@@ -59,23 +59,7 @@ export default {
     <div class="thumbs">
       <img
         width="100"
-        src="https://image.tmdb.org/t/p/original/9zcbqSxdsRMZWHYtyCd1nXPr2xq.jpg"
-      />
-      <img
-        width="100"
-        src="https://image.tmdb.org/t/p/original/aZ4fmjMUAhS6PWhVLDDfT0RAdNe.jpg"
-      />
-      <img
-        width="100"
-        src="https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg"
-      />
-      <img
-        width="100"
-        src="https://image.tmdb.org/t/p/original/qruRhG6jE5M8lWnW1AGOBxtdmCO.jpg"
-      />
-      <img
-        width="100"
-        src="https://image.tmdb.org/t/p/original/lMu3y10KgIYtXFPeCMim3D8iihV.jpg"
+        :src="thumb" v-for="thumb in slider.images"
       />
     </div>
 
