@@ -61,7 +61,7 @@ export default {
         width="100"
         :src="thumb"
         v-for="(thumb, index) in slider.images"
-        :class="index === activeImage ? 'active' : ''" @click="activeImage=index"
+        :class="index === activeImage ? 'active' : ''" @click="activeImage=index" :key="'thumb'+index"
       />
     </div>
 
@@ -122,8 +122,8 @@ button {
 
 .thumbs {
   & > img.active {
-    /*border: 5px solid rgba(129, 230, 46, 0.74);*/
-    filter: drop-shadow(2px 4px 6px rgba(5, 5, 5, 0.87));
+    border: 5px solid rgba(255, 255, 255, 0.74);
+    /*filter: drop-shadow(2px 4px 6px rgba(243, 218, 218, 0.87));*/
   }
 }
 </style>
